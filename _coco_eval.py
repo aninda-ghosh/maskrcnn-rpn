@@ -5,7 +5,6 @@ import numpy as np
 import copy
 import time
 import torch
-# import torch._six
 
 from pycocotools.cocoeval import COCOeval
 from pycocotools.coco import COCO
@@ -13,7 +12,7 @@ import pycocotools.mask as mask_util
 
 from collections import defaultdict
 
-import utils
+import _utils
 
 
 class CocoEvaluator(object):
@@ -161,8 +160,8 @@ def convert_to_xywh(boxes):
 
 
 def merge(img_ids, eval_imgs):
-    all_img_ids = utils.all_gather(img_ids)
-    all_eval_imgs = utils.all_gather(eval_imgs)
+    all_img_ids = _utils.all_gather(img_ids)
+    all_eval_imgs = _utils.all_gather(eval_imgs)
 
     merged_img_ids = []
     for p in all_img_ids:
