@@ -1,0 +1,5 @@
+all_dataset/*
+.vscode/*
+__pycache__/*
+*.pth
+*.txt
